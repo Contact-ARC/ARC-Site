@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Private by design — ARC</title>
+  <meta name="description" content="Technology fitted into a firm&#x27;s existing infrastructure, where who can see what is the whole job.">
+  <meta name="theme-color" content="#F7F7F3">
+  <link rel="icon" href="../../assets/icons/arc-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="">
+
+<!-- Icon sprite: industry symbols + ARC mark. Standalone copies live in assets/icons/ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mark" viewBox="0 0 48 48">
+    <path d="M8 42V24a16 16 0 0 1 32 0v18" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+    <path d="M17 42V25a7 7 0 0 1 14 0v17" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity=".45"/>
+  </symbol>
+  <symbol id="i-education" viewBox="0 0 48 48">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 40h40M8 40V20L24 9l16 11v20"/>
+      <path d="M19 40v-7a5 5 0 0 1 10 0v7M13 24h4M31 24h4"/>
+    </g>
+  </symbol>
+  <symbol id="i-architecture" viewBox="0 0 48 48">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 40h36M8 40V12h32v28"/>
+      <path d="M8 20h32M16 12v8M24 12v8M32 12v8" opacity=".55"/>
+      <path d="M15 40V31a9 9 0 0 1 18 0v9"/>
+    </g>
+  </symbol>
+  <symbol id="i-legal" viewBox="0 0 48 48">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 8v32M16 40h16M10 14h28"/>
+      <path d="M10 14l-5 11a5 5 0 0 0 10 0zM38 14l-5 11a5 5 0 0 0 10 0z"/>
+    </g>
+  </symbol>
+  <symbol id="i-aviation" viewBox="0 0 48 48">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 40h40"/>
+      <path d="M6 36C14 20 26 13 38 12" stroke-dasharray="2 4"/>
+      <path d="M36 8l7 4-7 4 1.5-4z"/>
+    </g>
+  </symbol>
+  <symbol id="i-industrial" viewBox="0 0 48 48">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 40l13-19 8 10 6-8 15 17z"/>
+      <path d="M12 34h24M17 28h7" opacity=".55"/>
+    </g>
+  </symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="../../" aria-label="ARC home">
+      <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+      <span class="brand-word">ARC</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="../../work/" aria-current="page">Work</a></li>
+        <li><a href="../../what-we-do/">What we do</a></li>
+        <li><a href="../../about/">About</a></li>
+      </ul>
+      <span class="nav-indicator" aria-hidden="true"></span>
+    </nav>
+    <a class="btn btn-primary btn-small" href="../../contact/">Let's talk</a>
+  </div>
+</header>
+
+<main id="main">
+  <article>
+  <section class="case-hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../">Work</a></li><li><span aria-current="page">Legal</span></li></ol></nav>
+      <div class="case-hero-grid">
+        <div>
+          <h1>Private by design</h1>
+          <p class="lede">Technology fitted into a firm's existing infrastructure, where who can see what is the whole job.</p>
+        </div>
+        <dl class="facts">
+          <div><dt>Industry</dt><dd>Legal</dd></div>
+          <div><dt>What we did</dt><dd><ul class="chips"><li>Integrations</li><li>Security</li><li>Permissions</li><li>Databases</li></ul></dd></div>
+          <div><dt>How it's shown</dt><dd><span class="work-vis">Shown as architecture</span></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap"><div class="visual visual-big"><svg viewBox="0 0 480 340" role="img" aria-label="Diagram: clients, lawyers and staff pass through a permissions layer; each can only reach certain records">
+              <g class="d-node"><rect x="24" y="50" width="110" height="44" rx="10"/><text x="79" y="77">Clients</text></g>
+              <g class="d-node"><rect x="24" y="148" width="110" height="44" rx="10"/><text x="79" y="175">Lawyers</text></g>
+              <g class="d-node"><rect x="24" y="246" width="110" height="44" rx="10"/><text x="79" y="273">Office staff</text></g>
+              <g class="d-node d-arc"><rect x="186" y="110" width="108" height="120" rx="54"/><text x="240" y="166">Permissions</text><path class="d-lock" d="M228 188v-6a12 12 0 0 1 24 0v6M224 188h32v18h-32z"/></g>
+              <path class="d-line" d="M134 72C165 72 170 130 186 140M134 170h52M134 268C165 268 170 210 186 200"/>
+              <g class="d-node"><rect x="346" y="50" width="110" height="44" rx="10"/><text x="401" y="77">Case files</text></g>
+              <g class="d-node"><rect x="346" y="148" width="110" height="44" rx="10"/><text x="401" y="175">Documents</text></g>
+              <g class="d-node"><rect x="346" y="246" width="110" height="44" rx="10"/><text x="401" y="273">Billing</text></g>
+              <path class="d-line" d="M294 140C320 130 320 72 346 72M294 170h52"/>
+              <path class="d-line d-denied" d="M294 200C320 210 320 268 346 268"/>
+            </svg></div></section>
+
+  <section class="wrap">
+    <aside class="private-note">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      <div><h2>Why there are no screenshots</h2><p>The firm prefers not to be named, and the systems hold client information. What you see here is the shape of the solution.</p></div>
+    </aside>
+  </section>
+  <section class="section">
+    <div class="wrap story">
+      <div class="story-row"><h2>The challenge</h2><p>A law firm runs on confidential information. New work had to fit the firm's existing infrastructure exactly, and access had to be controlled precisely, person by person and record by record.</p></div>
+      <div class="story-row"><h2>What we built</h2><dl class="built"><div><dt>Integration with existing systems</dt><dd>New capability that plugs into what the firm already uses.</dd></div><div><dt>Permissions</dt><dd>Detailed rules for who can open, edit and share each kind of record.</dd></div><div><dt>Security</dt><dd>Protection designed into the structure, not added afterwards.</dd></div></dl></div>
+      <div class="story-row"><h2>The result</h2><p>The firm works in the environment it already knows, with access rules that match how it needs to protect its clients.</p></div>
+    </div>
+  </section>
+  </article>
+
+  <nav class="next-project wrap" aria-label="Next project">
+    <a href="../aviation-infrastructure/">
+      <span class="next-label">Next project</span>
+      <span class="next-title">Infrastructure from the ground up</span>
+      <span class="work-industry">Aviation</span>
+    </a>
+  </nav>
+  <section class="cta-band">
+    <div class="wrap cta-inner">
+      <h2>Have something that needs building?</h2>
+      <p>Tell us what you're dealing with, even if you're not sure what you need yet.</p>
+      <a class="btn btn-light" href="../../contact/">Start a conversation</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="../../" aria-label="ARC home">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand-word">ARC</span>
+      </a>
+      <p>Applications &amp; Resource Customizations. Technology built around your organization.</p>
+    </div>
+    <nav aria-label="Footer">
+      <p class="footer-h">Site</p>
+      <ul>
+        <li><a href="../../work/">Work</a></li>
+        <li><a href="../../what-we-do/">What we do</a></li>
+        <li><a href="../../about/">About</a></li>
+        <li><a href="../../contact/">Contact</a></li>
+      </ul>
+    </nav>
+    <div>
+      <p class="footer-h">Talk to us</p>
+      <ul>
+        <li><a class="js-email" href="mailto:hello@example.com">hello@example.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-base">
+    <p>&copy; <span class="js-year">2026</span> ARC</p>
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+
+<script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Contact — ARC</title>
+  <meta name="description" content="Tell ARC about your project, your system or your idea.">
+  <meta name="theme-color" content="#F7F7F3">
+  <link rel="icon" href="../assets/icons/arc-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="page-contact">
+
+<!-- Icon sprite: industry symbols + ARC mark. Standalone copies live in assets/icons/ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mark" viewBox="0 0 48 48">
+    <path d="M8 42V24a16 16 0 0 1 32 0v18" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+    <path d="M17 42V25a7 7 0 0 1 14 0v17" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity=".45"/>
+  </symbol>
+  <symbol id="i-education" viewBox="0 0 48 48">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 40h40M8 40V20L24 9l16 11v20"/>
+      <path d="M19 40v-7a5 5 0 0 1 10 0v7M13 24h4M31 24h4"/>
+    </g>
+  </symbol>
+  <symbol id="i-architecture" viewBox="0 0 48 48">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 40h36M8 40V12h32v28"/>
+      <path d="M8 20h32M16 12v8M24 12v8M32 12v8" opacity=".55"/>
+      <path d="M15 40V31a9 9 0 0 1 18 0v9"/>
+    </g>
+  </symbol>
+  <symbol id="i-legal" viewBox="0 0 48 48">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 8v32M16 40h16M10 14h28"/>
+      <path d="M10 14l-5 11a5 5 0 0 0 10 0zM38 14l-5 11a5 5 0 0 0 10 0z"/>
+    </g>
+  </symbol>
+  <symbol id="i-aviation" viewBox="0 0 48 48">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 40h40"/>
+      <path d="M6 36C14 20 26 13 38 12" stroke-dasharray="2 4"/>
+      <path d="M36 8l7 4-7 4 1.5-4z"/>
+    </g>
+  </symbol>
+  <symbol id="i-industrial" viewBox="0 0 48 48">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 40l13-19 8 10 6-8 15 17z"/>
+      <path d="M12 34h24M17 28h7" opacity=".55"/>
+    </g>
+  </symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="../" aria-label="ARC home">
+      <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+      <span class="brand-word">ARC</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="../work/">Work</a></li>
+        <li><a href="../what-we-do/">What we do</a></li>
+        <li><a href="../about/">About</a></li>
+      </ul>
+      <span class="nav-indicator" aria-hidden="true"></span>
+    </nav>
+    <a class="btn btn-primary btn-small" href="../contact/" aria-current="page">Let's talk</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="contact contact-page">
+    <div class="wrap contact-inner">
+      <div class="contact-copy">
+        <h1>Let's build something.</h1>
+        <p>Have an existing system that needs improving? Need something built from scratch? Or just an idea you'd like to explore? Tell us about it.</p>
+        <p class="contact-direct">Prefer email? <a class="js-email" href="mailto:hello@example.com">hello@example.com</a></p>
+        <div class="next-steps">
+          <h2>What happens next</h2>
+          <ol>
+            <li><span aria-hidden="true">1</span><p>We read your message and reply personally. No automated sales sequence.</p></li>
+            <li><span aria-hidden="true">2</span><p>We set up a short call to understand what you're dealing with.</p></li>
+            <li><span aria-hidden="true">3</span><p>If we're a good fit, we come back with an approach. If we're not, we'll tell you.</p></li>
+          </ol>
+        </div>
+      </div>
+      <form class="contact-form" novalidate>
+        <div class="field"><label for="c-name">Your name</label><input id="c-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="c-org">Organization <span class="optional">(optional)</span></label><input id="c-org" name="organization" autocomplete="organization"></div>
+        <fieldset class="field choice">
+          <legend>What's it about? <span class="optional">(optional)</span></legend>
+          <div class="choices">
+            <label><input type="radio" name="topic" value="Something new"><span>Something new</span></label>
+            <label><input type="radio" name="topic" value="Improving what we have"><span>Improving what we have</span></label>
+            <label><input type="radio" name="topic" value="Infrastructure or security"><span>Infrastructure or security</span></label>
+            <label><input type="radio" name="topic" value="Not sure yet"><span>Not sure yet</span></label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="c-msg">Tell us about it</label><textarea id="c-msg" name="message" rows="6" required></textarea></div>
+        <button class="btn btn-light" type="submit">Send message</button>
+        <p class="form-status" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="../" aria-label="ARC home">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand-word">ARC</span>
+      </a>
+      <p>Applications &amp; Resource Customizations. Technology built around your organization.</p>
+    </div>
+    <nav aria-label="Footer">
+      <p class="footer-h">Site</p>
+      <ul>
+        <li><a href="../work/">Work</a></li>
+        <li><a href="../what-we-do/">What we do</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+    </nav>
+    <div>
+      <p class="footer-h">Talk to us</p>
+      <ul>
+        <li><a class="js-email" href="mailto:hello@example.com">hello@example.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-base">
+    <p>&copy; <span class="js-year">2026</span> ARC</p>
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
