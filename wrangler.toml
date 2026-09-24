@@ -1,8 +1,0 @@
-# Cloudflare Pages project config.
-# Bindings and variables are managed in the dashboard (Settings → Bindings /
-# Variables and Secrets) so that secrets never live in the repo. This file just
-# tells Wrangler what to serve locally: `npx wrangler pages dev public`
-
-name = "arc-site"
-compatibility_date = "2026-09-01"
-pages_build_output_dir = "public"
