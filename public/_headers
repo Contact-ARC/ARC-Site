@@ -4,10 +4,10 @@
 # If you edit that script, the browser will block it until you update the hash
 # (the console error tells you the new value).
 # static.cloudflareinsights.com / cloudflareinsights.com: Cloudflare Web Analytics.
-# If you turn on Turnstile, add https://challenges.cloudflare.com to script-src and frame-src.
+# challenges.cloudflare.com is already allowed, so turning Turnstile on needs no header change.
 
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-1EdKIt/6wjJyUej9QD28r1qqGcpAHsxvrjWGCue8nAQ=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-1EdKIt/6wjJyUej9QD28r1qqGcpAHsxvrjWGCue8nAQ=' https://static.cloudflareinsights.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()

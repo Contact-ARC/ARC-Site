@@ -227,6 +227,28 @@
   var CONTACT_EMAIL = "contact@arc-suite.com";
   var FORM_ENDPOINT = "/api/contact";
 
+  /* Turnstile: only loads if a site key is set in the page's meta tag. */
+  var TURNSTILE_KEY = (document.querySelector('meta[name="arc:turnstile"]') || {}).content || "";
+
+  function turnstile() {
+    if (!TURNSTILE_KEY) return;
+    var slots = document.querySelectorAll("[data-turnstile]");
+    if (!slots.length) return;
+    window.arcTurnstileReady = function () {
+      Array.prototype.forEach.call(slots, function (slot) {
+        try {
+          window.turnstile.render(slot, { sitekey: TURNSTILE_KEY, theme: "auto", action: "contact" });
+        } catch (e) {
+          console.error("Turnstile failed to render", e);
+        }
+      });
+    };
+    var s = document.createElement("script");
+    s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=arcTurnstileReady";
+    s.async = true; s.defer = true;
+    document.head.appendChild(s);
+  }
+
   function contact() {
     Array.prototype.forEach.call(document.querySelectorAll(".js-email"), function (a) {
       a.href = "mailto:" + CONTACT_EMAIL; a.textContent = CONTACT_EMAIL;
@@ -261,6 +283,14 @@
           return;
         }
 
+        if (TURNSTILE_KEY) {
+          var token = form.querySelector('[name="cf-turnstile-response"]');
+          if (!token || !token.value) {
+            say("Finish the \u201CI'm not a robot\u201D check just above, then send again.", true);
+            return;
+          }
+        }
+
         button.disabled = true;
         button.textContent = "Sending…";
         say("");
@@ -280,6 +310,7 @@
               done.focus();
               return;
             }
+            if (window.turnstile) { try { window.turnstile.reset(); } catch (e) {} }
             if (r.res.status === 429) {
               say("Too many messages in a short time. Wait a few minutes and try again.", true);
             } else if (r.res.status === 400 && r.json.fields) {
@@ -368,6 +399,7 @@
   header();
   marquee();
   work();
+  turnstile();
   contact();
   theme();
   reveals();

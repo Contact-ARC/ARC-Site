@@ -49,43 +49,16 @@ The `functions/` folder is picked up automatically and becomes `/api/contact`.
 
 ## Contact form setup
 
-### 1. Email sending
+The full walkthrough — Pages, domain, mailbox, sending providers, DNS, KV, Turnstile and verification — is in **[docs/SETUP.md](docs/SETUP.md)**. Short version:
 
-The function tries providers in this order and uses the first one configured:
+- `functions/api/contact.js` validates the message and emails it to `CONTACT_TO`.
+- It tries each configured email provider in turn (`EMAIL_PROVIDER_ORDER`, default: binding → Resend → Cloudflare), retrying once per provider, so one outage doesn't lose an enquiry.
+- With the `ENQUIRIES` KV binding, every message is stored for 90 days before sending, with status `sent` or `failed`.
+- With the `RATE_LIMIT` KV binding, each visitor gets 5 messages per 5 minutes and 20 per hour.
+- With `TURNSTILE_SECRET` set and a site key in the `arc:turnstile` meta tag, the form requires a Turnstile check.
+- With `NOTIFY_WEBHOOK` set, each enquiry (and any delivery failure) is posted to Slack or Discord.
 
-| Option | What to set | Notes |
-|---|---|---|
-| `send_email` binding | Binding named `EMAIL` | Only if your Pages project offers it; otherwise skip |
-| **Cloudflare Email Service REST API** (default) | `CF_ACCOUNT_ID`, `CF_EMAIL_TOKEN` (secret) | Onboard `arc-suite.com` under Compute → Email Service → Email Sending. Token needs permission to send email |
-| Resend | `RESEND_API_KEY` (secret) | Fallback. Verify `arc-suite.com` in Resend first |
-
-Cloudflare's free tier covers sending to **verified destination addresses**. Add `contact@arc-suite.com` as a verified destination in Email Routing. Sending to anyone else (for example, confirmation emails to visitors) needs the Workers Paid plan.
-
-### 2. Variables (Settings → Variables and Secrets)
-
-| Name | Example | Secret? |
-|---|---|---|
-| `CONTACT_TO` | `contact@arc-suite.com` | no |
-| `CONTACT_FROM` | `web@arc-suite.com` | no |
-| `ALLOWED_HOSTS` | `arc-suite.com,www.arc-suite.com,*.arc-site.pages.dev` | no |
-| `IP_SALT` | a long random string | **yes** |
-| `CF_ACCOUNT_ID` | from the dashboard sidebar | no |
-| `CF_EMAIL_TOKEN` | API token | **yes** |
-| `TURNSTILE_SECRET` | only if you enable Turnstile | **yes** |
-
-Replace `arc-site` in `ALLOWED_HOSTS` with your actual Pages project name, so preview deployments can send test messages.
-
-### 3. Rate limiting (recommended)
-
-- **Soft limit:** create a KV namespace and bind it to the project as `RATE_LIMIT`. The function then allows 5 messages per 5 minutes and 20 per hour per visitor.
-- **Hard limit:** Security → WAF → Rate limiting rules → a rule matching `/api/contact`. KV is eventually consistent; the WAF rule is not.
-
-### 4. Test it
-
-```bash
-cp .dev.vars.example .dev.vars   # fill in the values
-npx wrangler pages dev public
-```
+Every optional piece stays dormant until its variable or binding exists.
 
 ## The mailbox itself
 
@@ -129,7 +102,7 @@ Bricolage Grotesque and Figtree are self-hosted in `public/assets/fonts/` (Latin
 - **Shared header and footer** are copied into every HTML page. A nav change is a find-and-replace across `public/`.
 - **Motion:** page transitions use the CSS View Transitions API (browsers without it simply navigate normally); scroll reveals are in `js/main.js` → `reveals()`. Both switch off for visitors who prefer reduced motion.
 - **Theme script:** every page has a small script in `<head>` that applies the saved theme (and adds the `js` class used by the reveals) before the page draws. Its hash is in `_headers` (Content-Security-Policy). If you change the script, update the hash or the browser will block it.
-- **Turnstile:** if you turn it on, add `https://challenges.cloudflare.com` to `script-src` and `frame-src` in `_headers`, and add the widget to both forms.
+- **Turnstile:** the widget slot and the loader are already in place; setting the site key in the `arc:turnstile` meta tag switches them on (docs/SETUP.md step 8). No header change needed.
 - **Case studies:** copy a folder in `public/work/`, edit it, add a card to `public/work/index.html`, and fix the "Next project" link in the case study before it.
 
 ## Before launch
