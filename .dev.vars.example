@@ -1,0 +1,17 @@
+# Copy to .dev.vars for local testing: `npx wrangler pages dev public`
+# .dev.vars is gitignored. Never commit real values.
+
+CONTACT_TO=contact@arc-suite.com
+CONTACT_FROM=web@send.arc-suite.com
+ALLOWED_HOSTS=localhost,127.0.0.1,arc-suite.com,www.arc-suite.com
+IP_SALT=change-me-openssl-rand-hex-32
+
+# Email providers: the function tries them in order and falls back.
+RESEND_API_KEY=
+CF_ACCOUNT_ID=
+CF_EMAIL_TOKEN=
+EMAIL_PROVIDER_ORDER=resend,cloudflare
+
+# Optional
+# NOTIFY_WEBHOOK=
+# TURNSTILE_SECRET=
